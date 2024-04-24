@@ -36,4 +36,32 @@ class MarketModel: ObservableObject {
         let textDisplay = "\(coin.priceChange24H.orZero)" + "(\(toPercent)%)"
         return (value: textDisplay, color: toPercent >= 0 ? .green : .red)
     }
+    
+    func trendingCoins() -> [Coin] {
+        return coins.count >= 6 ? Array(coins.prefix(6)) : coins
+    }
+    
+    func trendingCoinIconPath() -> [String] {
+        return trendingCoins().map(\.image.orEmpty)
+    }
+    
+    func topGainers() -> [Coin] {
+        return Array(coins.sorted { a, b in
+            a.priceChange24H.orZero > b.priceChange24H.orZero
+        }.prefix(6))
+    }
+    
+    func topGainerIconPath() -> [String] {
+        return topGainers().map(\.image.orEmpty)
+    }
+    
+    func topLosers() -> [Coin] {
+        return Array(coins.sorted { a, b in
+            a.priceChange24H.orZero < b.priceChange24H.orZero
+        }.prefix(6))
+    }
+    
+    func topLoserIconPath() -> [String] {
+        topLosers().map(\.image.orEmpty)
+    }
 }
