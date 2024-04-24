@@ -14,6 +14,61 @@ struct MarketListScreen: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
+                
+                HStack {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "arrow.clockwise")
+                            .resizable()
+                            .aspectRatio(1, contentMode: .fit)
+                            .frame(height: 20)
+                            .foregroundStyle(.black)
+                    }
+                    .padding(.horizontal)
+                    
+                    Spacer()
+                    Text("Cointivity")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.orange)
+                    Spacer()
+                    
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                            .resizable()
+                            .aspectRatio(1, contentMode: .fit)
+                            .frame(height: 20)
+                            .foregroundStyle(.black)
+                    }
+                    .padding(.horizontal)
+                }
+                .padding(.bottom)
+                
+                Text("Crypto Market")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .padding(.horizontal)
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        StackCoinView(stackTitle: "🔥 Trending", imageUrls: model.trendingCoinIconPath()) {
+                            //TODO: - go to trending list
+                        }
+                        
+                        StackCoinView(stackTitle: "📈 Top Gainers", imageUrls: model.topGainerIconPath()) {
+                            //TODO: - go to trending list
+                        }
+                        
+                        StackCoinView(stackTitle: "📉 Top Losers", imageUrls: model.topLoserIconPath()) {
+                            //TODO: - go to trending list
+                        }
+                    }
+                    .padding()
+                }
+                
                 HStack {
                     FilterButtonView(isActive: model.activeFilter == .rank, text: MarketFilterItem.rank.rawValue) {
                         if model.activeFilter == .rank {

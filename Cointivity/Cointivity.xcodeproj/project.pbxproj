@@ -30,6 +30,8 @@
 		60B09FAB2BD973BD008F48E6 /* MarketItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FAA2BD973BD008F48E6 /* MarketItemView.swift */; };
 		60B09FAD2BD9789F008F48E6 /* FilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FAC2BD9789F008F48E6 /* FilterButtonView.swift */; };
 		60B09FAF2BD97BCA008F48E6 /* MarketFilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FAE2BD97BCA008F48E6 /* MarketFilterItem.swift */; };
+		60B09FB12BD97F26008F48E6 /* StackCoinItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FB02BD97F26008F48E6 /* StackCoinItemView.swift */; };
+		60B09FB42BD980C9008F48E6 /* StackCoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FB32BD980C9008F48E6 /* StackCoinView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		60B09FAA2BD973BD008F48E6 /* MarketItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketItemView.swift; sourceTree = "<group>"; };
 		60B09FAC2BD9789F008F48E6 /* FilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonView.swift; sourceTree = "<group>"; };
 		60B09FAE2BD97BCA008F48E6 /* MarketFilterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketFilterItem.swift; sourceTree = "<group>"; };
+		60B09FB02BD97F26008F48E6 /* StackCoinItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCoinItemView.swift; sourceTree = "<group>"; };
+		60B09FB32BD980C9008F48E6 /* StackCoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCoinView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +270,8 @@
 		60B09FA92BD973A9008F48E6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				60B09FB02BD97F26008F48E6 /* StackCoinItemView.swift */,
+				60B09FB32BD980C9008F48E6 /* StackCoinView.swift */,
 				60B09FAA2BD973BD008F48E6 /* MarketItemView.swift */,
 				60B09FAC2BD9789F008F48E6 /* FilterButtonView.swift */,
 			);
@@ -410,8 +416,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				60B09F5B2BD9644B008F48E6 /* ContentView.swift in Sources */,
+				60B09FB12BD97F26008F48E6 /* StackCoinItemView.swift in Sources */,
 				60B09FAF2BD97BCA008F48E6 /* MarketFilterItem.swift in Sources */,
 				60B09FA32BD967B3008F48E6 /* DependencyRegistration.swift in Sources */,
+				60B09FB42BD980C9008F48E6 /* StackCoinView.swift in Sources */,
 				60B09F882BD96504008F48E6 /* StringExt.swift in Sources */,
 				60B09F592BD9644B008F48E6 /* CointivityApp.swift in Sources */,
 				60B09F922BD965AE008F48E6 /* MarketListScreen.swift in Sources */,
