@@ -14,6 +14,20 @@
 		60B09F6B2BD9644C008F48E6 /* CointivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F6A2BD9644C008F48E6 /* CointivityTests.swift */; };
 		60B09F752BD9644C008F48E6 /* CointivityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F742BD9644C008F48E6 /* CointivityUITests.swift */; };
 		60B09F772BD9644C008F48E6 /* CointivityUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F762BD9644C008F48E6 /* CointivityUITestsLaunchTests.swift */; };
+		60B09F882BD96504008F48E6 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F872BD96504008F48E6 /* StringExt.swift */; };
+		60B09F8A2BD96525008F48E6 /* IntExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F892BD96525008F48E6 /* IntExt.swift */; };
+		60B09F902BD96568008F48E6 /* PathRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F8F2BD96568008F48E6 /* PathRoute.swift */; };
+		60B09F922BD965AE008F48E6 /* MarketListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F912BD965AE008F48E6 /* MarketListScreen.swift */; };
+		60B09F942BD965B7008F48E6 /* MarketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F932BD965B7008F48E6 /* MarketModel.swift */; };
+		60B09F972BD965D4008F48E6 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F962BD965D4008F48E6 /* Coin.swift */; };
+		60B09F992BD966AE008F48E6 /* dummy-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 60B09F982BD966AE008F48E6 /* dummy-response.json */; };
+		60B09F9C2BD966D0008F48E6 /* DummyJsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F9B2BD966D0008F48E6 /* DummyJsonService.swift */; };
+		60B09F9E2BD96709008F48E6 /* HttpClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F9D2BD96709008F48E6 /* HttpClientService.swift */; };
+		60B09FA02BD9671A008F48E6 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F9F2BD9671A008F48E6 /* NetworkError.swift */; };
+		60B09FA32BD967B3008F48E6 /* DependencyRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FA22BD967B3008F48E6 /* DependencyRegistration.swift */; };
+		60B09FA62BD967D1008F48E6 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 60B09FA52BD967D1008F48E6 /* Dependencies */; };
+		60B09FA82BD96D0C008F48E6 /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FA72BD96D0C008F48E6 /* DoubleExt.swift */; };
+		60B09FAB2BD973BD008F48E6 /* MarketItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FAA2BD973BD008F48E6 /* MarketItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +59,19 @@
 		60B09F702BD9644C008F48E6 /* CointivityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CointivityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60B09F742BD9644C008F48E6 /* CointivityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CointivityUITests.swift; sourceTree = "<group>"; };
 		60B09F762BD9644C008F48E6 /* CointivityUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CointivityUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		60B09F872BD96504008F48E6 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		60B09F892BD96525008F48E6 /* IntExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExt.swift; sourceTree = "<group>"; };
+		60B09F8F2BD96568008F48E6 /* PathRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathRoute.swift; sourceTree = "<group>"; };
+		60B09F912BD965AE008F48E6 /* MarketListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListScreen.swift; sourceTree = "<group>"; };
+		60B09F932BD965B7008F48E6 /* MarketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketModel.swift; sourceTree = "<group>"; };
+		60B09F962BD965D4008F48E6 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		60B09F982BD966AE008F48E6 /* dummy-response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "dummy-response.json"; sourceTree = "<group>"; };
+		60B09F9B2BD966D0008F48E6 /* DummyJsonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyJsonService.swift; sourceTree = "<group>"; };
+		60B09F9D2BD96709008F48E6 /* HttpClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientService.swift; sourceTree = "<group>"; };
+		60B09F9F2BD9671A008F48E6 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		60B09FA22BD967B3008F48E6 /* DependencyRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyRegistration.swift; sourceTree = "<group>"; };
+		60B09FA72BD96D0C008F48E6 /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
+		60B09FAA2BD973BD008F48E6 /* MarketItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60B09FA62BD967D1008F48E6 /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +107,7 @@
 				60B09F692BD9644C008F48E6 /* CointivityTests */,
 				60B09F732BD9644C008F48E6 /* CointivityUITests */,
 				60B09F562BD9644B008F48E6 /* Products */,
+				60B09FA42BD967D1008F48E6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,9 +124,9 @@
 		60B09F572BD9644B008F48E6 /* Cointivity */ = {
 			isa = PBXGroup;
 			children = (
-				60B09F582BD9644B008F48E6 /* CointivityApp.swift */,
-				60B09F5A2BD9644B008F48E6 /* ContentView.swift */,
-				60B09F5C2BD9644C008F48E6 /* Assets.xcassets */,
+				60B09F862BD964F2008F48E6 /* Resource */,
+				60B09F842BD964E2008F48E6 /* Utils */,
+				60B09F832BD964DE008F48E6 /* Core */,
 				60B09F5E2BD9644C008F48E6 /* Cointivity.entitlements */,
 				60B09F5F2BD9644C008F48E6 /* Preview Content */,
 			);
@@ -129,6 +158,114 @@
 			path = CointivityUITests;
 			sourceTree = "<group>";
 		};
+		60B09F832BD964DE008F48E6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				60B09F9A2BD966C1008F48E6 /* Services */,
+				60B09F8C2BD9654B008F48E6 /* Models */,
+				60B09F8B2BD96545008F48E6 /* Screens */,
+				60B09F852BD964EB008F48E6 /* App */,
+				60B09FA22BD967B3008F48E6 /* DependencyRegistration.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		60B09F842BD964E2008F48E6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				60B09F8E2BD9655C008F48E6 /* Extensions */,
+				60B09F8D2BD96558008F48E6 /* Enums */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		60B09F852BD964EB008F48E6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				60B09F582BD9644B008F48E6 /* CointivityApp.swift */,
+				60B09F5A2BD9644B008F48E6 /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		60B09F862BD964F2008F48E6 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				60B09F5C2BD9644C008F48E6 /* Assets.xcassets */,
+				60B09F982BD966AE008F48E6 /* dummy-response.json */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		60B09F8B2BD96545008F48E6 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				60B09FA92BD973A9008F48E6 /* Components */,
+				60B09F912BD965AE008F48E6 /* MarketListScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		60B09F8C2BD9654B008F48E6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				60B09F952BD965BA008F48E6 /* Codable */,
+				60B09F932BD965B7008F48E6 /* MarketModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		60B09F8D2BD96558008F48E6 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				60B09F8F2BD96568008F48E6 /* PathRoute.swift */,
+				60B09F9F2BD9671A008F48E6 /* NetworkError.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		60B09F8E2BD9655C008F48E6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				60B09F872BD96504008F48E6 /* StringExt.swift */,
+				60B09F892BD96525008F48E6 /* IntExt.swift */,
+				60B09FA72BD96D0C008F48E6 /* DoubleExt.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		60B09F952BD965BA008F48E6 /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				60B09F962BD965D4008F48E6 /* Coin.swift */,
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
+		60B09F9A2BD966C1008F48E6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				60B09F9B2BD966D0008F48E6 /* DummyJsonService.swift */,
+				60B09F9D2BD96709008F48E6 /* HttpClientService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		60B09FA42BD967D1008F48E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60B09FA92BD973A9008F48E6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				60B09FAA2BD973BD008F48E6 /* MarketItemView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +282,9 @@
 			dependencies = (
 			);
 			name = Cointivity;
+			packageProductDependencies = (
+				60B09FA52BD967D1008F48E6 /* Dependencies */,
+			);
 			productName = Cointivity;
 			productReference = 60B09F552BD9644B008F48E6 /* Cointivity.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +357,9 @@
 				Base,
 			);
 			mainGroup = 60B09F4C2BD9644B008F48E6;
+			packageReferences = (
+				60B09FA12BD9679E008F48E6 /* XCRemoteSwiftPackageReference "swift-dependencies" */,
+			);
 			productRefGroup = 60B09F562BD9644B008F48E6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,6 +378,7 @@
 			files = (
 				60B09F612BD9644C008F48E6 /* Preview Assets.xcassets in Resources */,
 				60B09F5D2BD9644C008F48E6 /* Assets.xcassets in Resources */,
+				60B09F992BD966AE008F48E6 /* dummy-response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +404,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				60B09F5B2BD9644B008F48E6 /* ContentView.swift in Sources */,
+				60B09FA32BD967B3008F48E6 /* DependencyRegistration.swift in Sources */,
+				60B09F882BD96504008F48E6 /* StringExt.swift in Sources */,
 				60B09F592BD9644B008F48E6 /* CointivityApp.swift in Sources */,
+				60B09F922BD965AE008F48E6 /* MarketListScreen.swift in Sources */,
+				60B09F902BD96568008F48E6 /* PathRoute.swift in Sources */,
+				60B09F942BD965B7008F48E6 /* MarketModel.swift in Sources */,
+				60B09F9E2BD96709008F48E6 /* HttpClientService.swift in Sources */,
+				60B09FAB2BD973BD008F48E6 /* MarketItemView.swift in Sources */,
+				60B09F972BD965D4008F48E6 /* Coin.swift in Sources */,
+				60B09F8A2BD96525008F48E6 /* IntExt.swift in Sources */,
+				60B09FA02BD9671A008F48E6 /* NetworkError.swift in Sources */,
+				60B09F9C2BD966D0008F48E6 /* DummyJsonService.swift in Sources */,
+				60B09FA82BD96D0C008F48E6 /* DoubleExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +590,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.3;
@@ -442,10 +598,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = leowirasanto.Cointivity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -472,7 +629,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.3;
@@ -480,10 +637,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = leowirasanto.Cointivity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -617,6 +775,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		60B09FA12BD9679E008F48E6 /* XCRemoteSwiftPackageReference "swift-dependencies" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-dependencies";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		60B09FA52BD967D1008F48E6 /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60B09FA12BD9679E008F48E6 /* XCRemoteSwiftPackageReference "swift-dependencies" */;
+			productName = Dependencies;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 60B09F4D2BD9644B008F48E6 /* Project object */;
 }
