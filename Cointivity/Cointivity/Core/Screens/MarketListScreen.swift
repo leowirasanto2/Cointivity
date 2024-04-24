@@ -10,6 +10,8 @@ import SwiftUI
 struct MarketListScreen: View {
     @EnvironmentObject var model: MarketModel
     private var iconSize: CGFloat = 30
+    @State private var showAllList = false
+    private let itemThreshold = 15
     
     var body: some View {
         ScrollView {
@@ -68,6 +70,7 @@ struct MarketListScreen: View {
                     }
                     .padding()
                 }
+                .scrollTargetBehavior(.paging)
                 
                 HStack {
                     FilterButtonView(isActive: model.activeFilter == .rank, text: MarketFilterItem.rank.rawValue) {
@@ -87,11 +90,26 @@ struct MarketListScreen: View {
                     }
                 }
                 .padding(.horizontal)
-                ForEach(model.coins, id: \.id) { coin in
+                ForEach(showAllList ? model.coins : Array(model.coins.prefix(itemThreshold)), id: \.id) { coin in
                     MarketItemView(coin: coin, iconSize: iconSize) { coin in
                         
                     }
                     .padding(.horizontal)
+                }
+                
+                if !showAllList {
+                    HStack(alignment: .center) {
+                        Spacer()
+                        Button {
+                            showAllList.toggle()
+                        } label: {
+                            Text("Show more")
+                                .foregroundStyle(.orange)
+                                .fontWeight(.semibold)
+                                .font(.headline)
+                        }
+                        Spacer()
+                    }
                 }
             }
         }
