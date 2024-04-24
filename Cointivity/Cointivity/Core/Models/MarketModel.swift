@@ -27,14 +27,17 @@ class MarketModel: ObservableObject {
         }
     }
     
-    func priceDisplay(coin: Coin) -> String {
-        return "$\(coin.currentPrice.orZero)"
-    }
-    
-    func priceUpdateDisplay(coin: Coin) -> (value: String, color: Color) {
-        let toPercent = coin.priceChangePercentage24H.orZero * 100
-        let textDisplay = "\(coin.priceChange24H.orZero)" + "(\(toPercent)%)"
-        return (value: textDisplay, color: toPercent >= 0 ? .green : .red)
+    func displayingCoins() -> [Coin] {
+        switch activeFilter {
+        case .rank:
+            return Array(coins.sorted {$0.marketCapRank.orZero > $1.marketCapRank.orZero })
+        case .volume:
+            return Array(coins.sorted {$0.totalVolume.orZero > $1.totalVolume.orZero })
+        case .marketCap:
+            return Array(coins.sorted {$0.marketCapChange24H.orZero > $1.marketCapChange24H.orZero })
+        case .none:
+            return coins
+        }
     }
     
     func trendingCoins() -> [Coin] {
