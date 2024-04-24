@@ -10,5 +10,6 @@ import Foundation
 enum MarketFilterItem: String {
     case rank = "Rank"
     case volume = "Volume"
+    case marketCap = "Market Cap 24H"
     case none
 }

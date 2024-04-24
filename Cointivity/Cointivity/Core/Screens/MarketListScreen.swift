@@ -68,29 +68,41 @@ struct MarketListScreen: View {
                             //TODO: - go to trending list
                         }
                     }
-                    .padding()
+                    .padding(.horizontal)
                 }
+                .scrollClipDisabled()
                 .scrollTargetBehavior(.paging)
                 
-                HStack {
-                    FilterButtonView(isActive: model.activeFilter == .rank, text: MarketFilterItem.rank.rawValue) {
-                        if model.activeFilter == .rank {
-                            model.activeFilter = .none
-                        } else {
-                            model.activeFilter = .rank
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 16) {
+                        FilterButtonView(isActive: model.activeFilter == .rank, text: MarketFilterItem.rank.rawValue) {
+                            if model.activeFilter == .rank {
+                                model.activeFilter = .none
+                            } else {
+                                model.activeFilter = .rank
+                            }
+                        }
+                        
+                        FilterButtonView(isActive: model.activeFilter == .volume, text: MarketFilterItem.volume.rawValue) {
+                            if model.activeFilter == .volume {
+                                model.activeFilter = .none
+                            } else {
+                                model.activeFilter = .volume
+                            }
+                        }
+                        
+                        FilterButtonView(isActive: model.activeFilter == .marketCap, text: MarketFilterItem.marketCap.rawValue) {
+                            if model.activeFilter == .marketCap {
+                                model.activeFilter = .none
+                            } else {
+                                model.activeFilter = .marketCap
+                            }
                         }
                     }
-                    
-                    FilterButtonView(isActive: model.activeFilter == .volume, text: MarketFilterItem.volume.rawValue) {
-                        if model.activeFilter == .volume {
-                            model.activeFilter = .none
-                        } else {
-                            model.activeFilter = .volume
-                        }
-                    }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
-                ForEach(showAllList ? model.coins : Array(model.coins.prefix(itemThreshold)), id: \.id) { coin in
+                .scrollClipDisabled()
+                ForEach(showAllList ? model.displayingCoins() : Array(model.displayingCoins().prefix(itemThreshold)), id: \.id) { coin in
                     MarketItemView(coin: coin, iconSize: iconSize) { coin in
                         
                     }
