@@ -14,9 +14,29 @@ struct MarketListScreen: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
+                HStack {
+                    FilterButtonView(isActive: model.activeFilter == .rank, text: MarketFilterItem.rank.rawValue) {
+                        if model.activeFilter == .rank {
+                            model.activeFilter = .none
+                        } else {
+                            model.activeFilter = .rank
+                        }
+                    }
+                    
+                    FilterButtonView(isActive: model.activeFilter == .volume, text: MarketFilterItem.volume.rawValue) {
+                        if model.activeFilter == .volume {
+                            model.activeFilter = .none
+                        } else {
+                            model.activeFilter = .volume
+                        }
+                    }
+                }
+                .padding(.horizontal)
                 ForEach(model.coins, id: \.id) { coin in
-                    MarketItemView(coin: coin, iconSize: iconSize)
-                        .padding(.horizontal)
+                    MarketItemView(coin: coin, iconSize: iconSize) { coin in
+                        
+                    }
+                    .padding(.horizontal)
                 }
             }
         }

@@ -13,8 +13,9 @@ import SwiftUI
 class MarketModel: ObservableObject {
     @Published var coins: [Coin] = []
     @Published var errorMessage: String?
-    @Dependency(\.dummyJsonService) var dumJsonService
+    @Published var activeFilter: MarketFilterItem = .none
     
+    @Dependency(\.dummyJsonService) var dumJsonService
     
     func fetchCoins() async {
         do {

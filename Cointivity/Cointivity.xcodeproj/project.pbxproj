@@ -28,6 +28,8 @@
 		60B09FA62BD967D1008F48E6 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 60B09FA52BD967D1008F48E6 /* Dependencies */; };
 		60B09FA82BD96D0C008F48E6 /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FA72BD96D0C008F48E6 /* DoubleExt.swift */; };
 		60B09FAB2BD973BD008F48E6 /* MarketItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FAA2BD973BD008F48E6 /* MarketItemView.swift */; };
+		60B09FAD2BD9789F008F48E6 /* FilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FAC2BD9789F008F48E6 /* FilterButtonView.swift */; };
+		60B09FAF2BD97BCA008F48E6 /* MarketFilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FAE2BD97BCA008F48E6 /* MarketFilterItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		60B09FA22BD967B3008F48E6 /* DependencyRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyRegistration.swift; sourceTree = "<group>"; };
 		60B09FA72BD96D0C008F48E6 /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
 		60B09FAA2BD973BD008F48E6 /* MarketItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketItemView.swift; sourceTree = "<group>"; };
+		60B09FAC2BD9789F008F48E6 /* FilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonView.swift; sourceTree = "<group>"; };
+		60B09FAE2BD97BCA008F48E6 /* MarketFilterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketFilterItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +224,7 @@
 			children = (
 				60B09F8F2BD96568008F48E6 /* PathRoute.swift */,
 				60B09F9F2BD9671A008F48E6 /* NetworkError.swift */,
+				60B09FAE2BD97BCA008F48E6 /* MarketFilterItem.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				60B09FAA2BD973BD008F48E6 /* MarketItemView.swift */,
+				60B09FAC2BD9789F008F48E6 /* FilterButtonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -404,12 +410,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				60B09F5B2BD9644B008F48E6 /* ContentView.swift in Sources */,
+				60B09FAF2BD97BCA008F48E6 /* MarketFilterItem.swift in Sources */,
 				60B09FA32BD967B3008F48E6 /* DependencyRegistration.swift in Sources */,
 				60B09F882BD96504008F48E6 /* StringExt.swift in Sources */,
 				60B09F592BD9644B008F48E6 /* CointivityApp.swift in Sources */,
 				60B09F922BD965AE008F48E6 /* MarketListScreen.swift in Sources */,
 				60B09F902BD96568008F48E6 /* PathRoute.swift in Sources */,
 				60B09F942BD965B7008F48E6 /* MarketModel.swift in Sources */,
+				60B09FAD2BD9789F008F48E6 /* FilterButtonView.swift in Sources */,
 				60B09F9E2BD96709008F48E6 /* HttpClientService.swift in Sources */,
 				60B09FAB2BD973BD008F48E6 /* MarketItemView.swift in Sources */,
 				60B09F972BD965D4008F48E6 /* Coin.swift in Sources */,
