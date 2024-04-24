@@ -58,8 +58,8 @@ struct MarketItemView: View {
     
     private var priceView: some View {
         let toPercent = coin.priceChangePercentage24H.orZero * 100
-        let priceChangeDisplay = "\(coin.priceChange24H.orZero)" + "(\(toPercent)%)"
-        let currentPriceDisplay = "$\(coin.currentPrice.orZero)"
+        let priceChangeDisplay = "\(String(format: "%.2f", coin.priceChange24H.orZero))" + "(\(String(format: "%.2f", toPercent))%)"
+        let currentPriceDisplay = "$\(String(format: "%.2f", coin.currentPrice.orZero))"
         let color: Color = toPercent >= 0 ? .green : .red
         
         return VStack(alignment: .trailing, spacing: 8) {
@@ -67,6 +67,7 @@ struct MarketItemView: View {
                 .font(.headline)
                 .foregroundStyle(.black)
             Text(priceChangeDisplay)
+                .font(.footnote)
                 .foregroundStyle(color)
         }
     }

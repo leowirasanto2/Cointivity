@@ -19,7 +19,9 @@ struct StackCoinItemView: View {
                     .aspectRatio(1, contentMode: .fit)
                     .frame(height: iconSize)
             } placeholder: {
-                ProgressView()
+                Circle()
+                    .opacity(0.2)
+                    .frame(maxWidth: iconSize, maxHeight: iconSize)
             }
         }
         .clipShape(Circle())

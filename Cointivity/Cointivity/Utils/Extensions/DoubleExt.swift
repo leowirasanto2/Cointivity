@@ -12,3 +12,9 @@ extension Optional where Wrapped == Double {
         return self ?? 0.0
     }
 }
+
+extension Optional where Wrapped == Decimal {
+    var orZero: Decimal {
+        return self ?? 0.0
+    }
+}
