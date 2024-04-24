@@ -13,7 +13,6 @@ struct ContentView: View {
             MarketListScreen()
                 .environmentObject(MarketModel())
         }
-        .padding()
     }
 }
 
