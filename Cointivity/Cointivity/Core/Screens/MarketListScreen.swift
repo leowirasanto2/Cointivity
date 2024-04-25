@@ -11,26 +11,37 @@ struct MarketListScreen: View {
     @EnvironmentObject var model: MarketModel
     @State private var showAllList = false
     @State private var showFilterToolbar = false
-    
-    private var iconSize: CGFloat = 30
+    @State private var iconSize: CGFloat = 30
     private let itemThreshold = 15
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                titleSection
-                topSection
-                filterSection
-                marketListSection
+        NavigationStack(path: $model.path) {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    titleSection
+                    topSection
+                    filterSection
+                    marketListSection
+                }
             }
-        }
-        .sheet(isPresented: $showFilterToolbar, content: {
-            FilterScreen(activeFilter: $model.activeFilter)
-                .presentationDetents([.medium])
-        })
-        .onAppear {
-            Task {
-                await model.fetchCoins()
+            .sheet(isPresented: $showFilterToolbar, content: {
+                FilterScreen(activeFilter: $model.activeFilter)
+                    .presentationDetents([.medium])
+            })
+            .onAppear {
+                Task {
+                    await model.fetchCoins()
+                }
+            }
+            .navigationDestination(for: PathRoute.self) { selected in
+                switch selected {
+                case .searchScreen:
+                    SearchMarketList(model: model, path: $model.path)
+                case .detailScreen:
+                    Text("Detail screen")
+                default:
+                    Text("Coming soon")
+                }
             }
         }
     }
@@ -76,7 +87,7 @@ struct MarketListScreen: View {
                 }
                 
                 Button {
-                    
+                    model.path = [.searchScreen]
                 } label: {
                     Image(systemName: "magnifyingglass")
                         .resizable()
