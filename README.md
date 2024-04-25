@@ -16,4 +16,11 @@ A simple cryptocurrency coin tracker
 
 # Screenshot/Video
 
-![sort](https://github.com/leowirasanto2/Cointivity/assets/156512514/06725d89-dbe3-46fa-8280-ed95f3f5117a)
+## Sorting
+
+![advanced-filter](https://github.com/leowirasanto2/Cointivity/assets/156512514/202cca16-9edf-431a-8704-0fbd2c623488)
+
+## Adding watch list
+
+![watchlist](https://github.com/leowirasanto2/Cointivity/assets/156512514/a91ec18d-761f-4698-9038-b32b73300025)
+
