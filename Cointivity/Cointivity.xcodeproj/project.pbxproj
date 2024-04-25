@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60289E0F2BDA590200E15671 /* SearchMarketList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60289E0E2BDA590200E15671 /* SearchMarketList.swift */; };
 		60B09F592BD9644B008F48E6 /* CointivityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F582BD9644B008F48E6 /* CointivityApp.swift */; };
 		60B09F5B2BD9644B008F48E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F5A2BD9644B008F48E6 /* ContentView.swift */; };
 		60B09F5D2BD9644C008F48E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60B09F5C2BD9644C008F48E6 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		60289E0E2BDA590200E15671 /* SearchMarketList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMarketList.swift; sourceTree = "<group>"; };
 		60B09F552BD9644B008F48E6 /* Cointivity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cointivity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60B09F582BD9644B008F48E6 /* CointivityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CointivityApp.swift; sourceTree = "<group>"; };
 		60B09F5A2BD9644B008F48E6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				60B09FA92BD973A9008F48E6 /* Components */,
 				60B09F912BD965AE008F48E6 /* MarketListScreen.swift */,
 				60B09FB52BDA0026008F48E6 /* FilterScreen.swift */,
+				60289E0E2BDA590200E15671 /* SearchMarketList.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				60B09F902BD96568008F48E6 /* PathRoute.swift in Sources */,
 				60B09F942BD965B7008F48E6 /* MarketModel.swift in Sources */,
 				60B09FAD2BD9789F008F48E6 /* FilterButtonView.swift in Sources */,
+				60289E0F2BDA590200E15671 /* SearchMarketList.swift in Sources */,
 				60B09F9E2BD96709008F48E6 /* HttpClientService.swift in Sources */,
 				60B09FAB2BD973BD008F48E6 /* MarketItemView.swift in Sources */,
 				60B09F972BD965D4008F48E6 /* Coin.swift in Sources */,

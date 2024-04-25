@@ -16,11 +16,13 @@ class MarketModel: ObservableObject {
     @Published var displayingCoins: [Coin] = []
     @Published var isEditingWatchList = false
     @Published var selectedCoinIds: [String] = []
+    @Published var path: [PathRoute] = []
     @Published var activeFilter: MarketFilterItem = .none {
         didSet {
             updateDisplayingCoins(oldValue, activeFilter)
         }
     }
+    @Published var searchResult: [Coin] = []
     
     @Dependency(\.dummyJsonService) var dumJsonService
     
@@ -31,7 +33,15 @@ class MarketModel: ObservableObject {
             displayingCoins = response
         } catch {
             errorMessage = error.localizedDescription
-            print(error)
+        }
+    }
+    
+    func searchCoins(_ keyword: String) async {
+        do {
+            let response = try await dumJsonService.get("dummy-response") as [Coin]
+            searchResult = response
+        } catch {
+            errorMessage = error.localizedDescription
         }
     }
     
@@ -62,7 +72,7 @@ class MarketModel: ObservableObject {
             }
             selectedCoinIds.append(coin.id.orEmpty)
         } else {
-            // TODO: - handle open detail page here
+            path.append(.detailScreen)
         }
     }
     

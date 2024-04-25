@@ -11,4 +11,6 @@ enum PathRoute: Hashable {
     case detailScreen
     case profileScreen
     case editScreen
+    case searchScreen
+    case watchListScreen
 }
