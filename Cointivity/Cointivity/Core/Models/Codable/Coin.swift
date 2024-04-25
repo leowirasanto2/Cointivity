@@ -34,6 +34,11 @@ struct Coin: Codable {
     let atlDate: String?
     let roi: Roi?
     let lastUpdated: String?
+    var isSelected: Bool = false
+    
+    mutating func setSelected(_ value: Bool) {
+        self.isSelected = value
+    }
     
     enum CodingKeys: String, CodingKey {
         case id
