@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		60289E0F2BDA590200E15671 /* SearchMarketList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60289E0E2BDA590200E15671 /* SearchMarketList.swift */; };
+		60289E112BDA723C00E15671 /* dummy-chart.json in Resources */ = {isa = PBXBuildFile; fileRef = 60289E102BDA723C00E15671 /* dummy-chart.json */; };
+		60289E132BDA72DE00E15671 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60289E122BDA72DE00E15671 /* ChartModel.swift */; };
+		60289E152BDA73B700E15671 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60289E142BDA73B700E15671 /* ChartView.swift */; };
 		60B09F592BD9644B008F48E6 /* CointivityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F582BD9644B008F48E6 /* CointivityApp.swift */; };
 		60B09F5B2BD9644B008F48E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F5A2BD9644B008F48E6 /* ContentView.swift */; };
 		60B09F5D2BD9644C008F48E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60B09F5C2BD9644C008F48E6 /* Assets.xcassets */; };
@@ -55,6 +58,9 @@
 
 /* Begin PBXFileReference section */
 		60289E0E2BDA590200E15671 /* SearchMarketList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMarketList.swift; sourceTree = "<group>"; };
+		60289E102BDA723C00E15671 /* dummy-chart.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "dummy-chart.json"; sourceTree = "<group>"; };
+		60289E122BDA72DE00E15671 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
+		60289E142BDA73B700E15671 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		60B09F552BD9644B008F48E6 /* Cointivity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cointivity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60B09F582BD9644B008F48E6 /* CointivityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CointivityApp.swift; sourceTree = "<group>"; };
 		60B09F5A2BD9644B008F48E6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -205,6 +211,7 @@
 			children = (
 				60B09F5C2BD9644C008F48E6 /* Assets.xcassets */,
 				60B09F982BD966AE008F48E6 /* dummy-response.json */,
+				60289E102BDA723C00E15671 /* dummy-chart.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -253,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				60B09F962BD965D4008F48E6 /* Coin.swift */,
+				60289E122BDA72DE00E15671 /* ChartModel.swift */,
 			);
 			path = Codable;
 			sourceTree = "<group>";
@@ -280,6 +288,7 @@
 				60B09FB32BD980C9008F48E6 /* StackCoinView.swift */,
 				60B09FAA2BD973BD008F48E6 /* MarketItemView.swift */,
 				60B09FAC2BD9789F008F48E6 /* FilterButtonView.swift */,
+				60289E142BDA73B700E15671 /* ChartView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -397,6 +406,7 @@
 				60B09F612BD9644C008F48E6 /* Preview Assets.xcassets in Resources */,
 				60B09F5D2BD9644C008F48E6 /* Assets.xcassets in Resources */,
 				60B09F992BD966AE008F48E6 /* dummy-response.json in Resources */,
+				60289E112BDA723C00E15671 /* dummy-chart.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,7 +438,9 @@
 				60B09FB42BD980C9008F48E6 /* StackCoinView.swift in Sources */,
 				60B09F882BD96504008F48E6 /* StringExt.swift in Sources */,
 				60B09F592BD9644B008F48E6 /* CointivityApp.swift in Sources */,
+				60289E152BDA73B700E15671 /* ChartView.swift in Sources */,
 				60B09F922BD965AE008F48E6 /* MarketListScreen.swift in Sources */,
+				60289E132BDA72DE00E15671 /* ChartModel.swift in Sources */,
 				60B09F902BD96568008F48E6 /* PathRoute.swift in Sources */,
 				60B09F942BD965B7008F48E6 /* MarketModel.swift in Sources */,
 				60B09FAD2BD9789F008F48E6 /* FilterButtonView.swift in Sources */,
