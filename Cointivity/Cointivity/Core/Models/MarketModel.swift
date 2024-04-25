@@ -13,7 +13,12 @@ import SwiftUI
 class MarketModel: ObservableObject {
     @Published var coins: [Coin] = []
     @Published var errorMessage: String?
-    @Published var activeFilter: MarketFilterItem = .none
+    @Published var displayingCoins: [Coin] = []
+    @Published var activeFilter: MarketFilterItem = .none {
+        didSet {
+            updateDisplayingCoins(oldValue, activeFilter)
+        }
+    }
     
     @Dependency(\.dummyJsonService) var dumJsonService
     
@@ -21,22 +26,25 @@ class MarketModel: ObservableObject {
         do {
             let response = try await dumJsonService.get("dummy-response") as [Coin]
             coins = response
+            displayingCoins = response
         } catch {
             errorMessage = error.localizedDescription
             print(error)
         }
     }
     
-    func displayingCoins() -> [Coin] {
-        switch activeFilter {
+    func updateDisplayingCoins(_ oldFilter: MarketFilterItem, _ newFilter: MarketFilterItem) {
+        switch newFilter {
         case .rank:
-            return Array(coins.sorted {$0.marketCapRank.orZero > $1.marketCapRank.orZero })
+            displayingCoins = Array(coins.sorted {$0.marketCapRank.orZero > $1.marketCapRank.orZero })
         case .volume:
-            return Array(coins.sorted {$0.totalVolume.orZero > $1.totalVolume.orZero })
+            displayingCoins = Array(coins.sorted {$0.totalVolume.orZero > $1.totalVolume.orZero })
         case .marketCap:
-            return Array(coins.sorted {$0.marketCapChange24H.orZero > $1.marketCapChange24H.orZero })
+            displayingCoins = Array(coins.sorted {$0.marketCapChange24H.orZero > $1.marketCapChange24H.orZero })
+        case .sortBy:
+            break
         case .none:
-            return coins
+            displayingCoins = coins
         }
     }
     

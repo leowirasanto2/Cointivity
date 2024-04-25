@@ -20,7 +20,7 @@ struct StackCoinItemView: View {
                     .frame(height: iconSize)
             } placeholder: {
                 Circle()
-                    .opacity(0.2)
+                    .foregroundStyle(.gray.opacity(0.1))
                     .frame(maxWidth: iconSize, maxHeight: iconSize)
             }
         }

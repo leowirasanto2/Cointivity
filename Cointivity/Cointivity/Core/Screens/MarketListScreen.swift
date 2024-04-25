@@ -9,8 +9,10 @@ import SwiftUI
 
 struct MarketListScreen: View {
     @EnvironmentObject var model: MarketModel
-    private var iconSize: CGFloat = 30
     @State private var showAllList = false
+    @State private var showFilterToolbar = false
+    
+    private var iconSize: CGFloat = 30
     private let itemThreshold = 15
     
     var body: some View {
@@ -73,36 +75,32 @@ struct MarketListScreen: View {
                 .scrollClipDisabled()
                 .scrollTargetBehavior(.paging)
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 16) {
-                        FilterButtonView(isActive: model.activeFilter == .rank, text: MarketFilterItem.rank.rawValue) {
-                            if model.activeFilter == .rank {
-                                model.activeFilter = .none
-                            } else {
-                                model.activeFilter = .rank
-                            }
-                        }
-                        
-                        FilterButtonView(isActive: model.activeFilter == .volume, text: MarketFilterItem.volume.rawValue) {
-                            if model.activeFilter == .volume {
-                                model.activeFilter = .none
-                            } else {
-                                model.activeFilter = .volume
-                            }
-                        }
-                        
-                        FilterButtonView(isActive: model.activeFilter == .marketCap, text: MarketFilterItem.marketCap.rawValue) {
-                            if model.activeFilter == .marketCap {
-                                model.activeFilter = .none
-                            } else {
-                                model.activeFilter = .marketCap
-                            }
+                HStack(spacing: 16) {
+                    FilterButtonView(isActive: model.activeFilter == .rank, text: MarketFilterItem.rank.rawValue) {
+                        if model.activeFilter == .rank {
+                            model.activeFilter = .none
+                        } else {
+                            model.activeFilter = .rank
                         }
                     }
-                    .padding(.horizontal)
+                    
+                    FilterButtonView(isActive: model.activeFilter == .volume, text: MarketFilterItem.volume.rawValue) {
+                        if model.activeFilter == .volume {
+                            model.activeFilter = .none
+                        } else {
+                            model.activeFilter = .volume
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    FilterButtonView(isActive: isShortButtonActive(), text: "Sort", rightIcon: Image(systemName: "arrow.up.arrow.down")) {
+                        showFilterToolbar.toggle()
+                    }
                 }
-                .scrollClipDisabled()
-                ForEach(showAllList ? model.displayingCoins() : Array(model.displayingCoins().prefix(itemThreshold)), id: \.id) { coin in
+                .padding(.horizontal)
+                
+                ForEach(showAllList ? model.displayingCoins : Array(model.displayingCoins.prefix(itemThreshold)), id: \.id) { coin in
                     MarketItemView(coin: coin, iconSize: iconSize) { coin in
                         
                     }
@@ -125,10 +123,23 @@ struct MarketListScreen: View {
                 }
             }
         }
+        .sheet(isPresented: $showFilterToolbar, content: {
+            FilterScreen(activeFilter: $model.activeFilter)
+                .presentationDetents([.medium])
+        })
         .onAppear {
             Task {
                 await model.fetchCoins()
             }
+        }
+    }
+    
+    private func isShortButtonActive() -> Bool {
+        switch model.activeFilter {
+        case .volume, .rank, .none:
+            return false
+        default:
+            return true
         }
     }
 }

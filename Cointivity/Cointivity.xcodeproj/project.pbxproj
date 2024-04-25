@@ -32,6 +32,7 @@
 		60B09FAF2BD97BCA008F48E6 /* MarketFilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FAE2BD97BCA008F48E6 /* MarketFilterItem.swift */; };
 		60B09FB12BD97F26008F48E6 /* StackCoinItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FB02BD97F26008F48E6 /* StackCoinItemView.swift */; };
 		60B09FB42BD980C9008F48E6 /* StackCoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FB32BD980C9008F48E6 /* StackCoinView.swift */; };
+		60B09FB62BDA0026008F48E6 /* FilterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09FB52BDA0026008F48E6 /* FilterScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		60B09FAE2BD97BCA008F48E6 /* MarketFilterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketFilterItem.swift; sourceTree = "<group>"; };
 		60B09FB02BD97F26008F48E6 /* StackCoinItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCoinItemView.swift; sourceTree = "<group>"; };
 		60B09FB32BD980C9008F48E6 /* StackCoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCoinView.swift; sourceTree = "<group>"; };
+		60B09FB52BDA0026008F48E6 /* FilterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 			children = (
 				60B09FA92BD973A9008F48E6 /* Components */,
 				60B09F912BD965AE008F48E6 /* MarketListScreen.swift */,
+				60B09FB52BDA0026008F48E6 /* FilterScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				60B09F972BD965D4008F48E6 /* Coin.swift in Sources */,
 				60B09F8A2BD96525008F48E6 /* IntExt.swift in Sources */,
 				60B09FA02BD9671A008F48E6 /* NetworkError.swift in Sources */,
+				60B09FB62BDA0026008F48E6 /* FilterScreen.swift in Sources */,
 				60B09F9C2BD966D0008F48E6 /* DummyJsonService.swift in Sources */,
 				60B09FA82BD96D0C008F48E6 /* DoubleExt.swift in Sources */,
 			);

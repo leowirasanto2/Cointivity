@@ -21,7 +21,7 @@ struct FilterButtonView: View {
                     leftIcon
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: 6)
+                        .frame(height: 8)
                 }
                 
                 Text(text)
@@ -32,7 +32,7 @@ struct FilterButtonView: View {
                     rightIcon
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: 6)
+                        .frame(height: 8)
                 }
             }
             .foregroundStyle(isActive ? .white : .black)

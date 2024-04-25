@@ -7,9 +7,10 @@
 
 import Foundation
 
-enum MarketFilterItem: String {
+enum MarketFilterItem: String, CaseIterable {
     case rank = "Rank"
     case volume = "Volume"
     case marketCap = "Market Cap 24H"
-    case none
+    case sortBy = "Sort"
+    case none = "Reset"
 }
