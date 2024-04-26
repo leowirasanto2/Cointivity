@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "D05561C5-D25D-44AD-8D67-B4294B7227B2",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Cointivity.xcodeproj",
+      "identifier" : "60B09F542BD9644B008F48E6",
+      "name" : "Cointivity"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Cointivity.xcodeproj",
+        "identifier" : "60B09F652BD9644C008F48E6",
+        "name" : "CointivityTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Cointivity.xcodeproj",
+        "identifier" : "60B09F6F2BD9644C008F48E6",
+        "name" : "CointivityUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

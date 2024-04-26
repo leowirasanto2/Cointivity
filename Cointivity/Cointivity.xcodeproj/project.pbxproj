@@ -84,6 +84,7 @@
 		60B09FB02BD97F26008F48E6 /* StackCoinItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCoinItemView.swift; sourceTree = "<group>"; };
 		60B09FB32BD980C9008F48E6 /* StackCoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCoinView.swift; sourceTree = "<group>"; };
 		60B09FB52BDA0026008F48E6 /* FilterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterScreen.swift; sourceTree = "<group>"; };
+		60EFE39C2BDB6FF000DB81FD /* Cointivity.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cointivity.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +116,7 @@
 		60B09F4C2BD9644B008F48E6 = {
 			isa = PBXGroup;
 			children = (
+				60EFE39C2BDB6FF000DB81FD /* Cointivity.xctestplan */,
 				60B09F572BD9644B008F48E6 /* Cointivity */,
 				60B09F692BD9644C008F48E6 /* CointivityTests */,
 				60B09F732BD9644C008F48E6 /* CointivityUITests */,
