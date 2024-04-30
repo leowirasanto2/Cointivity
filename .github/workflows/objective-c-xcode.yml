@@ -16,6 +16,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Build
         run: |
-          xcodebuild clean build analyze -scheme Cointivity -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11'
+          xcodebuild clean build analyze -scheme Cointivity/Cointivity -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11'
 
   
