@@ -75,3 +75,42 @@ struct Roi: Codable {
     let currency: String?
     let percentage: Double?
 }
+
+extension Coin {
+    init() {
+        self.init(
+            id: "bitcoin",
+            symbol: "btc",
+            name: "Bitcoin",
+            image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+            currentPrice: 64658,
+            marketCap: 1273972802248,
+            marketCapRank: 1,
+            fullyDilutedValuation: 1358758352929,
+            totalVolume: 24272511009,
+            high24H: 67058,
+            low24H: 64564,
+            priceChange24H: -1761.5205474212562,
+            priceChangePercentage24H: -2.65211,
+            marketCapChange24H: -36014640427.28735,
+            marketCapChangePercentage24H: -2.74924,
+            circulatingSupply: 19689615,
+            totalSupply: 21000000,
+            maxSupply: 21000000,
+            ath: 73738,
+            athChangePercentage: -11.98632,
+            athDate: "2024-03-14T07:10:36.635Z",
+            atl: 67.81,
+            atlChangePercentage: 95609.22418,
+            atlDate: "2013-07-06T00:00:00.000Z",
+            roi: .init(),
+            lastUpdated: "2024-04-24T15:56:25.526Z"
+        )
+    }
+}
+
+extension Roi {
+    init() {
+        self.init(times: nil, currency: nil, percentage: nil)
+    }
+}

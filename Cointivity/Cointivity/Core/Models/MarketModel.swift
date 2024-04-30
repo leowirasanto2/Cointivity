@@ -17,7 +17,6 @@ class MarketModel: ObservableObject {
     @Published var displayingCoins: [Coin] = []
     @Published var isEditingWatchList = false
     @Published var selectedCoinIds: [String] = []
-    @Published var path: [PathRoute] = []
     @Published var activeFilter: MarketFilterItem = .none {
         didSet {
             updateDisplayingCoins(oldValue, activeFilter)
@@ -77,16 +76,12 @@ class MarketModel: ObservableObject {
         return selectedCoinIds.first(where: { $0 == coin.id.orEmpty }) != nil
     }
     
-    func marketItemSelectedAction(_ coin: Coin) {
-        if isEditingWatchList {
-            guard selectedCoinIds.first(where: { $0 == coin.id.orEmpty }) == nil else {
-                selectedCoinIds.removeAll(where: { $0 == coin.id.orEmpty })
-                return
-            }
-            selectedCoinIds.append(coin.id.orEmpty)
-        } else {
-            path.append(.detailScreen)
+    func selectToEditAction(_ coin: Coin) {
+        guard selectedCoinIds.first(where: { $0 == coin.id.orEmpty }) == nil else {
+            selectedCoinIds.removeAll(where: { $0 == coin.id.orEmpty })
+            return
         }
+        selectedCoinIds.append(coin.id.orEmpty)
     }
     
     func trendingCoins() -> [Coin] {

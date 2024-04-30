@@ -47,7 +47,8 @@ struct SearchMarketList: View {
                 }
                 .onTapGesture {
                     searching = false
-                    model.marketItemSelectedAction(result)
+                    model.selectedCoin = result
+                    path.append(.detailScreen)
                 }
             }
         }

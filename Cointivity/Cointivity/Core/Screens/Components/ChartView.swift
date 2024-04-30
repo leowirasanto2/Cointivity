@@ -10,10 +10,12 @@ import Charts
 
 struct ChartView: View {
     var dataPoints: [PriceDataPoint] = []
+    var coin: Coin
     @Binding var selectedTimeFrame: ChartTimeframe
     
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("\(coin.name.orEmpty) Price Chart (\(coin.symbol.orEmpty.uppercased()))")
             HStack {
                 ForEach(ChartTimeframe.allCases, id: \.rawValue) { tFrame in
                     Button {
@@ -22,10 +24,16 @@ struct ChartView: View {
                         Text(tFrame.rawValue)
                             .font(.subheadline)
                             .fontWeight(.semibold)
-                            .foregroundStyle(selectedTimeFrame.rawValue == tFrame.rawValue ? .orange : .blue)
+                            .foregroundStyle(selectedTimeFrame.rawValue == tFrame.rawValue ? .black : .black.opacity(0.5))
+                            .padding(8)
+                            .background(selectedTimeFrame.rawValue == tFrame.rawValue ? .white : .clear)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                 }
+                .padding(4)
             }
+            .background(.gray.opacity(0.2))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
             
             Chart {
                 ForEach(dataPoints, id: \.id) { point in
@@ -37,19 +45,8 @@ struct ChartView: View {
                 }
             }
             .chartXScale(domain: .automatic(dataType: Date.self) { _ in })
-//            .chartXAxis {
-//                AxisMarks(position: .bottom, values: dates()) { value in
-//                    AxisGridLine()
-//                    AxisValueLabel() {
-//                        if let dateValue = value.as(Date.self) {
-//                            Text(formattedDate(dateValue))
-//                        }
-//                    }
-//                }
-//            }
             .chartYScale(domain: ClosedRange(uncheckedBounds: (lower: prices().min().orZero, upper: prices().max().orZero)))
-            .chartScrollableAxes(.horizontal)
-            .frame(maxHeight: 300)
+            .frame(height: 300)
         }
     }
     
@@ -69,5 +66,5 @@ struct ChartView: View {
 }
 
 #Preview {
-    ChartView(selectedTimeFrame: .constant(.month))
+    ChartView(dataPoints: PriceDataPoint.getDummyPriceData(), coin: Coin(), selectedTimeFrame: .constant(.day))
 }

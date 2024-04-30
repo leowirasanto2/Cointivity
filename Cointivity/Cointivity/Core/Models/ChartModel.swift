@@ -15,11 +15,14 @@ class ChartModel: ObservableObject {
     @Published var priceDataPoint: [PriceDataPoint] = []
     @Published var chartData: ChartData?
     @Published var timeFrame: ChartTimeframe = .day
+    @Published var selectedCoin: Coin?
     @Dependency(\.dummyJsonService) var dumJsonService
-    
     private var anyCancellables: Set<AnyCancellable> = []
+    var path: Binding<[PathRoute]>
     
-    init() {
+    init(coin: Coin?, path: Binding<[PathRoute]>) {
+        self.path = path
+        self.selectedCoin = coin
         listenTimeframe()
         listenChartData()
     }

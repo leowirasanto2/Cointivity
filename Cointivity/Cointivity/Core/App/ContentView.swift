@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var path: [PathRoute] = []
     var body: some View {
         VStack {
-            MarketListScreen()
+            MarketListScreen(path: $path)
                 .environmentObject(MarketModel())
         }
     }

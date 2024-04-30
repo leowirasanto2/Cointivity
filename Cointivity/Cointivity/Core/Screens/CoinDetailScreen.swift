@@ -9,16 +9,21 @@ import SwiftUI
 
 struct CoinDetailScreen: View {
     @EnvironmentObject var model: ChartModel
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        VStack {
-            ChartView(dataPoints: model.priceDataPoint, selectedTimeFrame: $model.timeFrame)
-            Text("points available -> \(model.priceDataPoint.count)")
+        ScrollView {
+            VStack {
+                if let coin = model.selectedCoin {
+                    ChartView(dataPoints: model.priceDataPoint, coin: coin, selectedTimeFrame: $model.timeFrame)
+                        .padding()
+                }
+            }
         }
     }
 }
 
 #Preview {
     CoinDetailScreen()
-        .environmentObject(ChartModel())
+        .environmentObject(ChartModel(coin: .init(), path: .constant([])))
 }
