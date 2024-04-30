@@ -13,12 +13,16 @@ struct CoinDetailScreen: View {
     
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(alignment: .leading) {
                 if let coin = model.selectedCoin {
                     ChartView(dataPoints: model.priceDataPoint, coin: coin, selectedTimeFrame: $model.timeFrame)
                         .padding()
+                    
+                    Text("\(coin.name.orEmpty) Statistics")
+                        .font(.headline)
                 }
             }
+            .padding()
         }
     }
 }

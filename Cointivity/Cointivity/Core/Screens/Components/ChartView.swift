@@ -16,6 +16,9 @@ struct ChartView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text("\(coin.name.orEmpty) Price Chart (\(coin.symbol.orEmpty.uppercased()))")
+                .font(.subheadline)
+                .fontWeight(.semibold)
+                .foregroundStyle(.black.opacity(0.7))
             HStack {
                 ForEach(ChartTimeframe.allCases, id: \.rawValue) { tFrame in
                     Button {
