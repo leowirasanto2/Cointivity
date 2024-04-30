@@ -27,23 +27,14 @@ class MarketModel: ObservableObject {
     @Environment(\.openURL) var openUrl
     
     @Dependency(\.dummyJsonService) var dumJsonService
+    @Dependency(\.httpClientService) var httpClientService
     
     func fetchCoins() async {
         do {
-            let response = try await dumJsonService.get("dummy-response") as [Coin]
+            let resource = Resource(url: APIs.marketList.url, method: .get([URLQueryItem(name: "vs_currency", value: "usd")]), modelType: [Coin].self)
+            let response = try await httpClientService.load(resource)
             coins = response
             displayingCoins = response
-        } catch {
-            errorMessage = error.localizedDescription
-        }
-    }
-    
-    func fetchChart() async {
-        //TODO: - use this validation for real api call
-//        guard let id = selectedCoin?.id else { return }
-        do {
-            let response = try await dumJsonService.get("dummy-chart") as ChartData
-            chartDataPoint = response
         } catch {
             errorMessage = error.localizedDescription
         }

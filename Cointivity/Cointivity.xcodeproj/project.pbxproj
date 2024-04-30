@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600E38552BE1583D0078DF78 /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600E38542BE1583D0078DF78 /* APIs.swift */; };
 		60289E0F2BDA590200E15671 /* SearchMarketList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60289E0E2BDA590200E15671 /* SearchMarketList.swift */; };
 		60289E132BDA72DE00E15671 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60289E122BDA72DE00E15671 /* ChartData.swift */; };
 		60289E152BDA73B700E15671 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60289E142BDA73B700E15671 /* ChartView.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		600E38542BE1583D0078DF78 /* APIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
 		60289E0E2BDA590200E15671 /* SearchMarketList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMarketList.swift; sourceTree = "<group>"; };
 		60289E122BDA72DE00E15671 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		60289E142BDA73B700E15671 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				60B09F9F2BD9671A008F48E6 /* NetworkError.swift */,
 				60B09FAE2BD97BCA008F48E6 /* MarketFilterItem.swift */,
 				602FD5322BE0BFA6005B42E3 /* ChartTimeframe.swift */,
+				600E38542BE1583D0078DF78 /* APIs.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				60B09FAF2BD97BCA008F48E6 /* MarketFilterItem.swift in Sources */,
 				602FD5372BE0C2DC005B42E3 /* CoinDetailScreen.swift in Sources */,
 				60B09FA32BD967B3008F48E6 /* DependencyRegistration.swift in Sources */,
+				600E38552BE1583D0078DF78 /* APIs.swift in Sources */,
 				602FD53F2BE1015C005B42E3 /* ArrayExt.swift in Sources */,
 				60B09FB42BD980C9008F48E6 /* StackCoinView.swift in Sources */,
 				60B09F882BD96504008F48E6 /* StringExt.swift in Sources */,

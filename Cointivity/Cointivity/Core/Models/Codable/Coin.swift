@@ -16,7 +16,7 @@ struct Coin: Codable {
     let marketCap: Double?
     let marketCapRank: Int?
     let fullyDilutedValuation: Double?
-    let totalVolume: Int?
+    let totalVolume: Double?
     let high24H: Double?
     let low24H: Double?
     let priceChange24H: Double?
