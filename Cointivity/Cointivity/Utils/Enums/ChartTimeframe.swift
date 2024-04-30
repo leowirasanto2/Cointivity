@@ -15,6 +15,18 @@ enum ChartTimeframe: String, CaseIterable {
 }
 
 extension ChartTimeframe {
+    var value: Int {
+        switch self {
+        case .day:
+            return 1
+        case .week:
+            return 7
+        case .month:
+            return 30
+        case .year:
+            return 365
+        }
+    }
     var response: String {
         switch self {
         case .day:

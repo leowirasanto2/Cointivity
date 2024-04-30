@@ -18,6 +18,7 @@ class CoinDetailModel: ObservableObject {
     @Published var selectedCoin: Coin?
     @Published var coinDetails: CoinDetail?
     @Dependency(\.dummyJsonService) var dumJsonService
+    @Dependency(\.httpClientService) var httpClientService
     @Environment(\.openURL) var openUrl
     private var anyCancellables: Set<AnyCancellable> = []
     var path: Binding<[PathRoute]>
@@ -31,7 +32,26 @@ class CoinDetailModel: ObservableObject {
     
     func fetchCoinDetail() async {
         do {
-            coinDetails = try await dumJsonService.get("coin-detail-res")
+            let resource = Resource(
+                url: APIs.coinDetail(coinId: (selectedCoin?.id).orEmpty).url,
+                method: .get([]),
+                modelType: CoinDetail.self)
+            coinDetails = try await httpClientService.load(resource)
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func fetchChart() async {
+        do {
+            let resource = Resource(
+                url: APIs.chart(coinId: (selectedCoin?.id).orEmpty).url,
+                method: .get([
+                    URLQueryItem(name: "vs_currency", value: "usd"),
+                    URLQueryItem(name: "days", value: String(timeFrame.value))
+                ]),
+                modelType: ChartData.self)
+            chartData = try await httpClientService.load(resource)
         } catch {
             print(error)
         }
@@ -151,13 +171,5 @@ class CoinDetailModel: ObservableObject {
             guard let priceData = data?.getPriceDataPoint() else { return }
             self.priceDataPoint = priceData
         }.store(in: &anyCancellables)
-    }
-    
-    private func fetchChart() async {
-        do {
-            chartData = try await dumJsonService.get(timeFrame.response) as ChartData
-        } catch {
-            print(error)
-        }
     }
 }
