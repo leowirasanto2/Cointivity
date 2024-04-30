@@ -82,6 +82,9 @@ struct MarketListScreen: View {
                         }
                     }
                 }
+                .onTapGesture {
+                    model.openUrl(URL(string: "https://www.coingecko.com")!)
+                }
             }
             
             HStack(alignment: .center) {

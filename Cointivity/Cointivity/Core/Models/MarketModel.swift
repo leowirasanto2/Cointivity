@@ -24,6 +24,7 @@ class MarketModel: ObservableObject {
     }
     @Published var searchResult: [Coin] = []
     @Published var selectedCoin: Coin?
+    @Environment(\.openURL) var openUrl
     
     @Dependency(\.dummyJsonService) var dumJsonService
     
