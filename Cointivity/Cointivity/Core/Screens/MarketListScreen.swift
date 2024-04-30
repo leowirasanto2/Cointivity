@@ -38,7 +38,8 @@ struct MarketListScreen: View {
                 case .searchScreen:
                     SearchMarketList(model: model, path: $model.path)
                 case .detailScreen:
-                    Text("Detail screen")
+                    CoinDetailScreen()
+                        .environmentObject(ChartModel())
                 default:
                     Text("Coming soon")
                 }

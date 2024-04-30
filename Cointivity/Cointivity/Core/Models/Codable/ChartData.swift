@@ -23,7 +23,7 @@ struct ChartData: Codable {
             guard
                 let date = data.first,
                 let price = data.last else { return nil }
-            let toDate = Date(timeIntervalSince1970: date)
+            let toDate = Date(timeIntervalSince1970: date / 1000)
             return PriceDataPoint(price: price, date: toDate)
         }
         return result
@@ -31,6 +31,7 @@ struct ChartData: Codable {
 }
 
 struct PriceDataPoint {
+    var id = UUID().uuidString
     var price: Double
     var date: Date
 }
