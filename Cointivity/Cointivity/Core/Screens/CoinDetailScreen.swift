@@ -105,7 +105,7 @@ struct CoinDetailScreen: View {
                     .shadow(color: .black.opacity(0.1), radius: 8)
                     
                     VStack(alignment: .leading) {
-                        Text("Statistics")
+                        Text("Chart")
                             .font(.title3)
                             .fontWeight(.semibold)
                         
