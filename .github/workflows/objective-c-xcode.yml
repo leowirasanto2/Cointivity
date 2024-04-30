@@ -39,7 +39,8 @@ jobs:
 
       - name: Build (Enhanced Error Handling)
         env:
-          SCHEME: ${{ file exists('default') && cat default || 'Cointivity' }}  # Use default scheme or fallback (Cointivity)
+          SCHEME: ${{ file.exists('default') && cat default || 'Cointivity' }}
+
         run: |
           filetype_parameter=$(echo "$file_to_build" | grep -Eo '\.xcworkspace|\.xcodeproj' | head -n 1)
           if [[ "$filetype_parameter" == ".xcworkspace" ]]; then
