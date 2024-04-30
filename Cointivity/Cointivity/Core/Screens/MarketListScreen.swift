@@ -59,11 +59,31 @@ struct MarketListScreen: View {
     
     private var titleSection: some View {
         ZStack(alignment: .centerFirstTextBaseline) {
-            Text("Cointivity")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundStyle(.orange)
+            VStack(spacing: 0) {
+                Text("Cointivity")
+                    .font(.system(size: 40))
+                    .fontWeight(.bold)
+                    .foregroundStyle(.orange)
                 .frame(maxWidth: .infinity)
+                
+                HStack(alignment: .center) {
+                    Text("Powered by")
+                        .font(.footnote)
+                        .foregroundStyle(.black.opacity(0.4))
+                    
+                    if let url = URL(string: .coinGeckoImageUrl) {
+                        AsyncImage(url: url) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 80)
+                        } placeholder: {
+                            EmptyView()
+                        }
+                    }
+                }
+            }
+            
             HStack(alignment: .center) {
                 Button {
                     
