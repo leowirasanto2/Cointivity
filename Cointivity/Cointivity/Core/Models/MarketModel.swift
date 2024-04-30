@@ -12,17 +12,19 @@ import SwiftUI
 @MainActor
 class MarketModel: ObservableObject {
     @Published var coins: [Coin] = []
+    @Published var chartDataPoint: ChartData?
     @Published var errorMessage: String?
     @Published var displayingCoins: [Coin] = []
     @Published var isEditingWatchList = false
     @Published var selectedCoinIds: [String] = []
-    @Published var path: [PathRoute] = []
     @Published var activeFilter: MarketFilterItem = .none {
         didSet {
             updateDisplayingCoins(oldValue, activeFilter)
         }
     }
     @Published var searchResult: [Coin] = []
+    @Published var selectedCoin: Coin?
+    @Environment(\.openURL) var openUrl
     
     @Dependency(\.dummyJsonService) var dumJsonService
     
@@ -31,6 +33,17 @@ class MarketModel: ObservableObject {
             let response = try await dumJsonService.get("dummy-response") as [Coin]
             coins = response
             displayingCoins = response
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
+    
+    func fetchChart() async {
+        //TODO: - use this validation for real api call
+//        guard let id = selectedCoin?.id else { return }
+        do {
+            let response = try await dumJsonService.get("dummy-chart") as ChartData
+            chartDataPoint = response
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -64,16 +77,12 @@ class MarketModel: ObservableObject {
         return selectedCoinIds.first(where: { $0 == coin.id.orEmpty }) != nil
     }
     
-    func marketItemSelectedAction(_ coin: Coin) {
-        if isEditingWatchList {
-            guard selectedCoinIds.first(where: { $0 == coin.id.orEmpty }) == nil else {
-                selectedCoinIds.removeAll(where: { $0 == coin.id.orEmpty })
-                return
-            }
-            selectedCoinIds.append(coin.id.orEmpty)
-        } else {
-            path.append(.detailScreen)
+    func selectToEditAction(_ coin: Coin) {
+        guard selectedCoinIds.first(where: { $0 == coin.id.orEmpty }) == nil else {
+            selectedCoinIds.removeAll(where: { $0 == coin.id.orEmpty })
+            return
         }
+        selectedCoinIds.append(coin.id.orEmpty)
     }
     
     func trendingCoins() -> [Coin] {

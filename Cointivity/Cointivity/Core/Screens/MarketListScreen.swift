@@ -12,10 +12,11 @@ struct MarketListScreen: View {
     @State private var showAllList = false
     @State private var showFilterToolbar = false
     @State private var iconSize: CGFloat = 30
+    @Binding var path: [PathRoute]
     private let itemThreshold = 15
     
     var body: some View {
-        NavigationStack(path: $model.path) {
+        NavigationStack(path: $path) {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     titleSection
@@ -36,9 +37,10 @@ struct MarketListScreen: View {
             .navigationDestination(for: PathRoute.self) { selected in
                 switch selected {
                 case .searchScreen:
-                    SearchMarketList(model: model, path: $model.path)
+                    SearchMarketList(model: model, path: $path)
                 case .detailScreen:
-                    Text("Detail screen")
+                    CoinDetailScreen()
+                        .environmentObject(CoinDetailModel(coin: model.selectedCoin, path: $path))
                 default:
                     Text("Coming soon")
                 }
@@ -57,11 +59,34 @@ struct MarketListScreen: View {
     
     private var titleSection: some View {
         ZStack(alignment: .centerFirstTextBaseline) {
-            Text("Cointivity")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundStyle(.orange)
+            VStack(spacing: 0) {
+                Text("Cointivity")
+                    .font(.system(size: 40))
+                    .fontWeight(.bold)
+                    .foregroundStyle(.orange)
                 .frame(maxWidth: .infinity)
+                
+                HStack(alignment: .center) {
+                    Text("Powered by")
+                        .font(.footnote)
+                        .foregroundStyle(.black.opacity(0.4))
+                    
+                    if let url = URL(string: .coinGeckoImageUrl) {
+                        AsyncImage(url: url) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 80)
+                        } placeholder: {
+                            EmptyView()
+                        }
+                    }
+                }
+                .onTapGesture {
+                    model.openUrl(URL(string: "https://www.coingecko.com")!)
+                }
+            }
+            
             HStack(alignment: .center) {
                 Button {
                     
@@ -87,7 +112,7 @@ struct MarketListScreen: View {
                 }
                 
                 Button {
-                    model.path = [.searchScreen]
+                    path = [.searchScreen]
                 } label: {
                     Image(systemName: "magnifyingglass")
                         .resizable()
@@ -159,7 +184,12 @@ struct MarketListScreen: View {
         Group {
             ForEach(showAllList ? model.displayingCoins : Array(model.displayingCoins.prefix(itemThreshold)), id: \.id) { coin in
                 Button {
-                    model.marketItemSelectedAction(coin)
+                    if model.isEditingWatchList {
+                        model.selectToEditAction(coin)
+                    } else {
+                        model.selectedCoin = coin
+                        path.append(.detailScreen)
+                    }
                 } label: {
                     MarketItemView(coin: coin, iconSize: iconSize, selectionMode: model.isEditingWatchList, isSelected: model.isCoinSelected(coin))
                 }
@@ -185,6 +215,6 @@ struct MarketListScreen: View {
 }
 
 #Preview {
-    MarketListScreen()
+    MarketListScreen(path: .constant([]))
         .environmentObject(MarketModel())
 }

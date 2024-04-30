@@ -18,3 +18,9 @@ extension Optional where Wrapped == Decimal {
         return self ?? 0.0
     }
 }
+
+extension Double {
+    var minimalistStringDecimal: String {
+        return String(format: "%.2f", self)
+    }
+}
