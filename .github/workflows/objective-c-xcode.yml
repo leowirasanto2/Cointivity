@@ -1,4 +1,4 @@
-name: Xcode - Build and Analyze (Cointivity)
+name: Xcode - Build and Analyze
 
 on:
   push:
@@ -7,46 +7,15 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build_and_analyze:
-    name: Build and Analyze (Cointivity Scheme)
+  build:
+    name: Build and analyse default scheme using xcodebuild command
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v4  # Checkout code from repository
-
-      - name: Determine Project/Workspace File
-        run: |  # Check for Xcodeproj or xcworkspace file
-          file_to_build=$(find . -maxdepth 1 -type f \( -name "*.xcworkspace" -o -name "*.xcodeproj" \))
-          if [[ -z "$file_to_build" ]]; then
-            echo "Error: No Xcode project or workspace file found!"
-            exit 1  # Halt workflow on error
-          fi
-          echo "Building: $file_to_build"
-
-      - name: Set Default Scheme (Improved Logic)
-        run: |  # Check for valid JSON output and handle errors
-          scheme_output=$(xcodebuild -list -json)
-          if [[ ! "$scheme_output" =~ \}$ ]]; then  # Check for closing curly brace in JSON
-            echo "Warning: 'xcodebuild -list -json' output might not be valid JSON. Using 'Cointivity' scheme."
-          else
-            scheme=$(echo "$scheme_output" | jq -r '.project.targets[0].name')
-            if [[ -z "$scheme" ]]; then
-              echo "Warning: Could not determine default scheme. Using 'Cointivity' scheme."
-            fi
-          fi
-          echo "Default scheme: $scheme"
-          echo "$scheme" > default  # Store in a file for later use
-
-      - name: Build (Enhanced Error Handling)
-        env:
-          SCHEME: ${{ file.exists('default') && cat default || 'Cointivity' }}
-
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build
         run: |
-          filetype_parameter=$(echo "$file_to_build" | grep -Eo '\.xcworkspace|\.xcodeproj' | head -n 1)
-          if [[ "$filetype_parameter" == ".xcworkspace" ]]; then
-            filetype_parameter="workspace"
-          else
-            filetype_parameter="project"
-          fi
+          xcodebuild clean build analyze test -scheme Cointivity -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15'
 
-          xcodebuild clean build analyze -scheme "$SCHEME" -"$filetype_parameter" "$file_to_build" | xcpretty || exit ${PIPESTATUS[0]}
+  
