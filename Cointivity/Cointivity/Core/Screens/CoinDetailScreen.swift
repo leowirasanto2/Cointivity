@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CoinDetailScreen: View {
-    @EnvironmentObject var model: ChartModel
+    @EnvironmentObject var model: CoinDetailModel
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -18,16 +18,29 @@ struct CoinDetailScreen: View {
                     ChartView(dataPoints: model.priceDataPoint, coin: coin, selectedTimeFrame: $model.timeFrame)
                         .padding()
                     
-                    Text("\(coin.name.orEmpty) Statistics")
+                    Text("Statistics")
                         .font(.headline)
+                    
+                    Group {
+                        Text("Info")
+                            .font(.headline)
+                        
+                        InfoRowItemView(title: "Website", values: model.getWebsiteInfo(), onUrlSelected: model.openUrl)
+                        InfoRowItemView(title: "Explorers", values: model.getExplorersInfo(), onUrlSelected: model.openUrl)
+                    }
                 }
             }
             .padding()
+        }
+        .onAppear {
+            Task {
+                await model.fetchCoinDetail()
+            }
         }
     }
 }
 
 #Preview {
     CoinDetailScreen()
-        .environmentObject(ChartModel(coin: .init(), path: .constant([])))
+        .environmentObject(CoinDetailModel(coin: .init(), path: .constant([])))
 }

@@ -40,7 +40,7 @@ struct MarketListScreen: View {
                     SearchMarketList(model: model, path: $path)
                 case .detailScreen:
                     CoinDetailScreen()
-                        .environmentObject(ChartModel(coin: model.selectedCoin, path: $path))
+                        .environmentObject(CoinDetailModel(coin: model.selectedCoin, path: $path))
                 default:
                     Text("Coming soon")
                 }
