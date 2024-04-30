@@ -12,7 +12,7 @@ import SwiftUI
 @MainActor
 class MarketModel: ObservableObject {
     @Published var coins: [Coin] = []
-    @Published var chartDataPoint: ChartModel?
+    @Published var chartDataPoint: ChartData?
     @Published var errorMessage: String?
     @Published var displayingCoins: [Coin] = []
     @Published var isEditingWatchList = false
@@ -42,7 +42,7 @@ class MarketModel: ObservableObject {
         //TODO: - use this validation for real api call
 //        guard let id = selectedCoin?.id else { return }
         do {
-            let response = try await dumJsonService.get("dummy-chart") as ChartModel
+            let response = try await dumJsonService.get("dummy-chart") as ChartData
             chartDataPoint = response
         } catch {
             errorMessage = error.localizedDescription
