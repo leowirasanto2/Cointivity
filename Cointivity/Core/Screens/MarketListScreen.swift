@@ -13,6 +13,7 @@ struct MarketListScreen: View {
     @State private var showFilterToolbar = false
     @State private var iconSize: CGFloat = 30
     @Binding var path: [PathRoute]
+    @Binding var toast: Toast?
     private let itemThreshold = 15
     
     var body: some View {
@@ -39,7 +40,7 @@ struct MarketListScreen: View {
                 case .searchScreen:
                     SearchMarketList(model: model, path: $path)
                 case .detailScreen:
-                    CoinDetailScreen()
+                    CoinDetailScreen(toast: $toast)
                         .environmentObject(CoinDetailModel(coin: model.selectedCoin, path: $path))
                 case .trendingListScreen:
                     TrendCoinScreen(path: $path, selected: $model.selectedCoin, coins: model.trendingCoins(model.selectedTrend))
@@ -47,6 +48,9 @@ struct MarketListScreen: View {
                 default:
                     Text("Coming soon")
                 }
+            }
+            .onChange(of: model.toastInfo) { oldValue, newValue in
+                toast = newValue
             }
         }
     }
@@ -213,6 +217,6 @@ struct MarketListScreen: View {
 }
 
 #Preview {
-    MarketListScreen(path: .constant([]))
+    MarketListScreen(path: .constant([]), toast: .constant(Toast(message: "toast message", type: .error, duration: .short)))
         .environmentObject(MarketModel())
 }

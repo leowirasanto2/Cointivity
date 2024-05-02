@@ -10,6 +10,7 @@ import SwiftUI
 struct CoinDetailScreen: View {
     @EnvironmentObject var model: CoinDetailModel
     @Environment(\.dismiss) var dismiss
+    @Binding var toast: Toast?
     
     var body: some View {
         ScrollView {
@@ -183,6 +184,9 @@ struct CoinDetailScreen: View {
             }
             .padding()
         }
+        .onChange(of: model.toast, { oldValue, newValue in
+            toast = newValue
+        })
         .onAppear {
             Task {
                 await model.fetchCoinDetail()
@@ -193,6 +197,6 @@ struct CoinDetailScreen: View {
 }
 
 #Preview {
-    CoinDetailScreen()
+    CoinDetailScreen(toast: .constant(Toast(message: "", type: .error, duration: .long)))
         .environmentObject(CoinDetailModel(coin: .init(), path: .constant([])))
 }

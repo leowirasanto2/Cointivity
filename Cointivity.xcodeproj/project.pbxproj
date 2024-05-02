@@ -24,6 +24,10 @@
 		602FD53F2BE1015C005B42E3 /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602FD53E2BE1015C005B42E3 /* ArrayExt.swift */; };
 		60813C242BE38409006F2F1F /* TrendCoinScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60813C232BE38408006F2F1F /* TrendCoinScreen.swift */; };
 		60813C262BE38634006F2F1F /* TrendSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60813C252BE38634006F2F1F /* TrendSection.swift */; };
+		60813C282BE38C48006F2F1F /* ToastType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60813C272BE38C48006F2F1F /* ToastType.swift */; };
+		60813C2A2BE38C67006F2F1F /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60813C292BE38C67006F2F1F /* ToastView.swift */; };
+		60813C2D2BE38E17006F2F1F /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60813C2C2BE38E17006F2F1F /* ToastModifier.swift */; };
+		60813C2F2BE39032006F2F1F /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60813C2E2BE39032006F2F1F /* ViewExt.swift */; };
 		60B09F592BD9644B008F48E6 /* CointivityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F582BD9644B008F48E6 /* CointivityApp.swift */; };
 		60B09F5B2BD9644B008F48E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B09F5A2BD9644B008F48E6 /* ContentView.swift */; };
 		60B09F5D2BD9644C008F48E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60B09F5C2BD9644C008F48E6 /* Assets.xcassets */; };
@@ -87,6 +91,10 @@
 		602FD53E2BE1015C005B42E3 /* ArrayExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExt.swift; sourceTree = "<group>"; };
 		60813C232BE38408006F2F1F /* TrendCoinScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendCoinScreen.swift; sourceTree = "<group>"; };
 		60813C252BE38634006F2F1F /* TrendSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendSection.swift; sourceTree = "<group>"; };
+		60813C272BE38C48006F2F1F /* ToastType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastType.swift; sourceTree = "<group>"; };
+		60813C292BE38C67006F2F1F /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		60813C2C2BE38E17006F2F1F /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
+		60813C2E2BE39032006F2F1F /* ViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExt.swift; sourceTree = "<group>"; };
 		60B09F552BD9644B008F48E6 /* Cointivity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cointivity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60B09F582BD9644B008F48E6 /* CointivityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CointivityApp.swift; sourceTree = "<group>"; };
 		60B09F5A2BD9644B008F48E6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -153,6 +161,14 @@
 				602FD52C2BE0BC81005B42E3 /* chart-res-one-week.json */,
 			);
 			path = ChartResponse;
+			sourceTree = "<group>";
+		};
+		60813C2B2BE38DFC006F2F1F /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				60813C2C2BE38E17006F2F1F /* ToastModifier.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 		60B09F4C2BD9644B008F48E6 = {
@@ -228,6 +244,7 @@
 		60B09F842BD964E2008F48E6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				60813C2B2BE38DFC006F2F1F /* ViewModifiers */,
 				60B09F8E2BD9655C008F48E6 /* Extensions */,
 				60B09F8D2BD96558008F48E6 /* Enums */,
 			);
@@ -286,6 +303,7 @@
 				602FD5322BE0BFA6005B42E3 /* ChartTimeframe.swift */,
 				600E38542BE1583D0078DF78 /* APIs.swift */,
 				60813C252BE38634006F2F1F /* TrendSection.swift */,
+				60813C272BE38C48006F2F1F /* ToastType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -297,6 +315,7 @@
 				60B09F892BD96525008F48E6 /* IntExt.swift */,
 				60B09FA72BD96D0C008F48E6 /* DoubleExt.swift */,
 				602FD53E2BE1015C005B42E3 /* ArrayExt.swift */,
+				60813C2E2BE39032006F2F1F /* ViewExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -336,6 +355,7 @@
 				60B09FAC2BD9789F008F48E6 /* FilterButtonView.swift */,
 				60289E142BDA73B700E15671 /* ChartView.swift */,
 				602FD53C2BE0ECAD005B42E3 /* InfoRowItemView.swift */,
+				60813C292BE38C67006F2F1F /* ToastView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -490,6 +510,7 @@
 				600E38552BE1583D0078DF78 /* APIs.swift in Sources */,
 				60813C262BE38634006F2F1F /* TrendSection.swift in Sources */,
 				602FD53F2BE1015C005B42E3 /* ArrayExt.swift in Sources */,
+				60813C2D2BE38E17006F2F1F /* ToastModifier.swift in Sources */,
 				60B09FB42BD980C9008F48E6 /* StackCoinView.swift in Sources */,
 				60B09F882BD96504008F48E6 /* StringExt.swift in Sources */,
 				602FD5312BE0BD6C005B42E3 /* CoinDetailModel.swift in Sources */,
@@ -505,12 +526,15 @@
 				60B09F9E2BD96709008F48E6 /* HttpClientService.swift in Sources */,
 				60B09FAB2BD973BD008F48E6 /* MarketItemView.swift in Sources */,
 				60B09F972BD965D4008F48E6 /* Coin.swift in Sources */,
+				60813C282BE38C48006F2F1F /* ToastType.swift in Sources */,
 				60B09F8A2BD96525008F48E6 /* IntExt.swift in Sources */,
 				602FD5332BE0BFA6005B42E3 /* ChartTimeframe.swift in Sources */,
 				60813C242BE38409006F2F1F /* TrendCoinScreen.swift in Sources */,
 				60B09FA02BD9671A008F48E6 /* NetworkError.swift in Sources */,
+				60813C2A2BE38C67006F2F1F /* ToastView.swift in Sources */,
 				60B09FB62BDA0026008F48E6 /* FilterScreen.swift in Sources */,
 				602FD5392BE0E7EC005B42E3 /* CoinDetail.swift in Sources */,
+				60813C2F2BE39032006F2F1F /* ViewExt.swift in Sources */,
 				60B09F9C2BD966D0008F48E6 /* DummyJsonService.swift in Sources */,
 				60B09FA82BD96D0C008F48E6 /* DoubleExt.swift in Sources */,
 			);

@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     @State var path: [PathRoute] = []
+    @State var toast: Toast?
     var body: some View {
         VStack {
-            MarketListScreen(path: $path)
+            MarketListScreen(path: $path, toast: $toast)
                 .environmentObject(MarketModel())
         }
+        .toastView($toast)
     }
 }
 
