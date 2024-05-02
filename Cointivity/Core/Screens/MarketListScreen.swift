@@ -41,6 +41,9 @@ struct MarketListScreen: View {
                 case .detailScreen:
                     CoinDetailScreen()
                         .environmentObject(CoinDetailModel(coin: model.selectedCoin, path: $path))
+                case .trendingListScreen:
+                    TrendCoinScreen(path: $path, selected: $model.selectedCoin, coins: model.trendingCoins(model.selectedTrend))
+                        .navigationTitle(model.selectedTrend.title)
                 default:
                     Text("Coming soon")
                 }
@@ -134,16 +137,11 @@ struct MarketListScreen: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    StackCoinView(stackTitle: "🔥 Trending", imageUrls: model.trendingCoinIconPath()) {
-                        //TODO: - go to trending list
-                    }
-                    
-                    StackCoinView(stackTitle: "📈 Top Gainers", imageUrls: model.topGainerIconPath()) {
-                        //TODO: - go to trending list
-                    }
-                    
-                    StackCoinView(stackTitle: "📉 Top Losers", imageUrls: model.topLoserIconPath()) {
-                        //TODO: - go to trending list
+                    ForEach(TrendSection.allCases, id: \.self) { section in
+                        StackCoinView(stackTitle: section.title, imageUrls: model.trendingCoinIconPath(section)) {
+                            model.selectedTrend = section
+                            path = [.trendingListScreen]
+                        }
                     }
                 }
                 .padding(.horizontal)

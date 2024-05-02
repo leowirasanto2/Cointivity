@@ -24,6 +24,7 @@ class MarketModel: ObservableObject {
     }
     @Published var searchResult: [Coin] = []
     @Published var selectedCoin: Coin?
+    @Published var selectedTrend: TrendSection = .trending
     @Environment(\.openURL) var openUrl
     
     @Dependency(\.dummyJsonService) var dumJsonService
@@ -76,31 +77,22 @@ class MarketModel: ObservableObject {
         selectedCoinIds.append(coin.id.orEmpty)
     }
     
-    func trendingCoins() -> [Coin] {
-        return coins.count >= 6 ? Array(coins.prefix(6)) : coins
+    func trendingCoins(_ section: TrendSection) -> [Coin] {
+        switch section {
+        case .trending:
+            return coins.count >= 6 ? Array(coins.prefix(6)) : coins
+        case .topGainer:
+            return Array(coins.sorted { a, b in
+                a.priceChange24H.orZero > b.priceChange24H.orZero
+            }.prefix(6))
+        case .topLoser:
+            return Array(coins.sorted { a, b in
+                a.priceChange24H.orZero < b.priceChange24H.orZero
+            }.prefix(6))
+        }
     }
     
-    func trendingCoinIconPath() -> [String] {
-        return trendingCoins().map(\.image.orEmpty)
-    }
-    
-    func topGainers() -> [Coin] {
-        return Array(coins.sorted { a, b in
-            a.priceChange24H.orZero > b.priceChange24H.orZero
-        }.prefix(6))
-    }
-    
-    func topGainerIconPath() -> [String] {
-        return topGainers().map(\.image.orEmpty)
-    }
-    
-    func topLosers() -> [Coin] {
-        return Array(coins.sorted { a, b in
-            a.priceChange24H.orZero < b.priceChange24H.orZero
-        }.prefix(6))
-    }
-    
-    func topLoserIconPath() -> [String] {
-        topLosers().map(\.image.orEmpty)
+    func trendingCoinIconPath(_ section: TrendSection) -> [String] {
+        return trendingCoins(section).map(\.image.orEmpty)
     }
 }

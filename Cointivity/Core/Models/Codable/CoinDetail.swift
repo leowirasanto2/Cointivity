@@ -144,7 +144,6 @@ struct Platforms: Codable {
 struct Ticker: Codable {
     let last, volume: Double?
     let convertedLast, convertedVolume: [String: Double]?
-    let trustScore: TrustScore?
     let bidAskSpreadPercentage: Double?
     let timestamp, lastTradedAt, lastFetchAt: String?
     let isAnomaly, isStale: Bool?
@@ -156,7 +155,6 @@ struct Ticker: Codable {
         case last, volume
         case convertedLast = "converted_last"
         case convertedVolume = "converted_volume"
-        case trustScore = "trust_score"
         case bidAskSpreadPercentage = "bid_ask_spread_percentage"
         case timestamp
         case lastTradedAt = "last_traded_at"
@@ -167,10 +165,6 @@ struct Ticker: Codable {
         case tokenInfoURL = "token_info_url"
         case coinID = "coin_id"
     }
-}
-
-enum TrustScore: String, Codable {
-    case green = "green"
 }
 
 // MARK: - MarketData
