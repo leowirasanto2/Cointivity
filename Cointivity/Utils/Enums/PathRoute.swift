@@ -13,4 +13,5 @@ enum PathRoute: Hashable {
     case editScreen
     case searchScreen
     case watchListScreen
+    case trendingListScreen
 }
