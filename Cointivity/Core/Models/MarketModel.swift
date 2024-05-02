@@ -13,7 +13,7 @@ import SwiftUI
 class MarketModel: ObservableObject {
     @Published var coins: [Coin] = []
     @Published var chartDataPoint: ChartData?
-    @Published var errorMessage: String?
+    @Published var toastInfo: Toast?
     @Published var displayingCoins: [Coin] = []
     @Published var isEditingWatchList = false
     @Published var selectedCoinIds: [String] = []
@@ -37,7 +37,7 @@ class MarketModel: ObservableObject {
             coins = response
             displayingCoins = response
         } catch {
-            errorMessage = error.localizedDescription
+            toastInfo = Toast(message: error.localizedDescription, type: .error, duration: .medium)
         }
     }
     
@@ -46,7 +46,7 @@ class MarketModel: ObservableObject {
             let response = try await dumJsonService.get("dummy-response") as [Coin]
             searchResult = response
         } catch {
-            errorMessage = error.localizedDescription
+            toastInfo = Toast(message: error.localizedDescription, type: .error, duration: .medium)
         }
     }
     

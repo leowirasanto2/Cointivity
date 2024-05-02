@@ -17,6 +17,7 @@ class CoinDetailModel: ObservableObject {
     @Published var timeFrame: ChartTimeframe = .day
     @Published var selectedCoin: Coin?
     @Published var coinDetails: CoinDetail?
+    @Published var toast: Toast?
     @Dependency(\.dummyJsonService) var dumJsonService
     @Dependency(\.httpClientService) var httpClientService
     @Environment(\.openURL) var openUrl
@@ -38,7 +39,7 @@ class CoinDetailModel: ObservableObject {
                 modelType: CoinDetail.self)
             coinDetails = try await httpClientService.load(resource)
         } catch {
-            print(error)
+            toast = Toast(message: error.localizedDescription, type: .error, duration: .medium)
         }
     }
     
@@ -53,7 +54,7 @@ class CoinDetailModel: ObservableObject {
                 modelType: ChartData.self)
             chartData = try await httpClientService.load(resource)
         } catch {
-            print(error)
+            toast = Toast(message: error.localizedDescription, type: .error, duration: .medium)
         }
     }
     
