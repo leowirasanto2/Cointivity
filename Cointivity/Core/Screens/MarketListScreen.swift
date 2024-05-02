@@ -15,6 +15,8 @@ struct MarketListScreen: View {
     @Binding var path: [PathRoute]
     @Binding var toast: Toast?
     private let itemThreshold = 15
+    private let reloadTimeInterval = DateComponents(minute: 5)
+    private let reloadTimer = Timer.publish(every: 60 * 5, on: .main, in: .common).autoconnect()
     
     var body: some View {
         NavigationStack(path: $path) {
@@ -51,6 +53,11 @@ struct MarketListScreen: View {
             }
             .onChange(of: model.toastInfo) { oldValue, newValue in
                 toast = newValue
+            }
+            .onReceive(reloadTimer) { _ in
+                Task {
+                    await model.fetchCoins()
+                }
             }
         }
     }
@@ -96,11 +103,13 @@ struct MarketListScreen: View {
             
             HStack(alignment: .center) {
                 Button {
-                    
+                    Task {
+                        await model.fetchCoins()
+                    }
                 } label: {
                     Image(systemName: "arrow.clockwise")
                         .resizable()
-                        .aspectRatio(1, contentMode: .fit)
+                        .aspectRatio(0.9, contentMode: .fit)
                         .frame(height: 20)
                         .foregroundStyle(.black)
                 }
